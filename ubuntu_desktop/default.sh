@@ -22,6 +22,11 @@ sudo apt-get install cuda -y
 wget https://repo.continuum.io/archive/Anaconda3-4.4.0-Linux-x86_64.sh
 bash Anaconda3-4.4.0-Linux-x86_64.sh
 rm Anaconda3-4.4.0-Linux-x86_64.sh
+pip install --upgrade pip
+pip install tensorflow
+pip install tensorflow-gpu
+pip install keras
+sudo apt-get install python-matplotlib -y
 
 # Ruby
 git clone https://github.com/sstephenson/rbenv.git ~/.rbenv

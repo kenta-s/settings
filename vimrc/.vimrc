@@ -1,0 +1,13 @@
+set number
+set tabstop=2
+set expandtab
+set shiftwidth=2
+set nobackup
+set noswapfile
+set cursorline
+set cursorcolumn
+set hlsearch
+set nowrap
+colorscheme koehler
+set background=dark
+syntax on

@@ -1,4 +1,7 @@
 #!/bin/bash
 
 script_dir=$(cd $(dirname $BASH_SOURCE); pwd)
-ln -s $script_dir/.vimrc ~/.vimrc
+curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > $script_dir/installer.sh
+mkdir -p ~/.vim/bundles
+bash $script_dir/installer.sh ~/.vim/bundles
+ln -s $script_dir/vimrc ~/.vimrc

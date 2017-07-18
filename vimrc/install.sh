@@ -5,3 +5,4 @@ curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh >
 mkdir -p ~/.vim/bundles
 bash $script_dir/installer.sh ~/.vim/bundles
 ln -s $script_dir/vimrc ~/.vimrc
+rm $script_dir/installer.sh

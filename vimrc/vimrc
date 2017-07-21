@@ -8,6 +8,7 @@ set cursorline
 set cursorcolumn
 set hlsearch
 set nowrap
+set autoread
 colorscheme koehler
 set background=dark
 syntax on

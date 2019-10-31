@@ -39,6 +39,8 @@ if dein#load_state('~/.vim/bundle')
   call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
   call dein#add('terryma/vim-multiple-cursors')
 
+  call dein#add('bronson/vim-trailing-whitespace')
+
   " Required:
   call dein#end()
   call dein#save_state()

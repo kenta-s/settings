@@ -36,6 +36,8 @@ if dein#load_state('~/.vim/bundle')
   " You can specify revision/branch/tag.
   call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
 
+  call dein#add('bronson/vim-trailing-whitespace')
+
   " Required:
   call dein#end()
   call dein#save_state()

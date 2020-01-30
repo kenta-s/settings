@@ -6,3 +6,4 @@ mkdir -p ~/.vim/bundles
 bash $script_dir/installer.sh ~/.vim/bundles
 ln -s $script_dir/vimrc ~/.vimrc
 rm $script_dir/installer.sh
+ln -s $script_dir/../tmux/.tmux.conf ~/.tmux.conf

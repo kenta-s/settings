@@ -9,7 +9,7 @@ set cursorcolumn
 set hlsearch
 set nowrap
 set autoread
-colorscheme koehler
+colorscheme molokai
 set background=dark
 syntax on
 

@@ -9,3 +9,6 @@ rm $script_dir/installer.sh
 mkdir -p ~/.vim/colors
 ln -s $script_dir/colors/molokai.vim ~/.vim/colors/molokai.vim
 ln -s $script_dir/../tmux/.tmux.conf ~/.tmux.conf
+
+# git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+# ~/.fzf/install

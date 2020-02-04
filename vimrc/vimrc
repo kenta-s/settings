@@ -63,6 +63,4 @@ nnoremap <Right> <Nop>
 nnoremap <Up> <Nop>
 nnoremap <Down> <Nop>
 noremap h <NOP>
-noremap j <NOP>
-noremap k <NOP>
 noremap l <NOP>

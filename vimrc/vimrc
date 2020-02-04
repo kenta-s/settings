@@ -43,6 +43,13 @@ if dein#load_state('~/.vim/bundle')
   call dein#save_state()
 endif
 
+call plug#begin('~/.vim/plugged')
+Plug 'junegunn/fzf.vim'
+Plug 'jremmen/vim-ripgrep'
+Plug '/usr/local/opt/fzf'
+call plug#end()
+
+
 " Required:
 filetype plugin indent on
 syntax enable
@@ -50,3 +57,12 @@ syntax enable
 if dein#check_install()
   call dein#install()
 endif
+
+nnoremap <Left> <Nop>
+nnoremap <Right> <Nop>
+nnoremap <Up> <Nop>
+nnoremap <Down> <Nop>
+noremap h <NOP>
+noremap j <NOP>
+noremap k <NOP>
+noremap l <NOP>

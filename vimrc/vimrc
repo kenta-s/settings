@@ -65,6 +65,4 @@ nnoremap <Down> <Nop>
 noremap h <NOP>
 noremap l <NOP>
 
-" https://github.com/BurntSushi/ripgrep
-"
 " :PlugInstall

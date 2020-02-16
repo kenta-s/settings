@@ -1,0 +1,38 @@
+---
+-
+  hosts: all
+  become: yes
+  tasks:
+    - name: apt update
+      apt:
+        update_cache: yes
+
+    - name: apt upgrade
+      apt:
+        upgrade: yes
+
+    - name: apt install gcc
+      apt:
+        name: gcc
+        state: present
+
+    - name: apt install git
+      apt:
+        name: git
+        state: present
+
+    - name: apt install docker
+      apt:
+        name: docker
+        state: present
+
+    - name: apt install docker-compose
+      apt:
+        name: docker-compose
+        state: present
+
+    - name: apt install vim
+      apt:
+        name: vim
+        state: present
+...

@@ -40,4 +40,15 @@
       apt:
         name: tmux
         state: present
+
+    - name: make CapsLock into Ctrl
+      lineinfile:
+        path: /etc/default/keyboard
+        regexp: '^XKBOPTIONS='
+        line: 'XKBOPTIONS="ctrl:nocaps"'
+
+    - name: systemctl restart console-setup
+      systemd:
+        name: console-setup
+        state: restarted
 ...

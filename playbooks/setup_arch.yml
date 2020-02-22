@@ -60,6 +60,11 @@
     - pacman:
         name: ripgrep
         state: present
+
+    - name: Make sure bluetooth is running
+      systemd:
+        state: started
+        name: bluetooth
 -
   hosts: localhost
   connection: local

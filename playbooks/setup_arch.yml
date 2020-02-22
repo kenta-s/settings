@@ -137,3 +137,13 @@
         path: ~/.config/locale.conf
         regexp: '^LC_CTYPE='
         line: 'LC_CTYPE=ja_JP.UTF-8'
+
+    - name: git clone fzf
+      git:
+        repo: https://github.com/junegunn/fzf.git
+        dest: ~/.fzf
+
+    - name: install fzf
+      shell: ~/.fzf/install && touch ~/.fzf/installed
+      args:
+        creates: ~/.fzf/installed

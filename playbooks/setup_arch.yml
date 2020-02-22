@@ -56,6 +56,10 @@
     - pacman:
         name: fcitx-configtool
         state: present
+
+    - pacman:
+        name: ripgrep
+        state: present
 -
   hosts: localhost
   connection: local

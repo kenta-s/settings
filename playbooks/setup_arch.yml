@@ -63,8 +63,10 @@
 
     - name: Make sure bluetooth is running
       systemd:
-        state: started
         name: bluetooth
+        state: started
+        enabled: yes
+
 -
   hosts: localhost
   connection: local

@@ -44,6 +44,18 @@
       pacman:
         name: curl
         state: present
+
+    - pacman:
+        name: fcitx
+        state: present
+
+    - pacman:
+        name: fcitx-mozc
+        state: present
+
+    - pacman:
+        name: fcitx-configtool
+        state: present
 -
   hosts: localhost
   connection: local
@@ -71,8 +83,8 @@
     - name: apply Emacs keybind 2
       lineinfile:
         path: ~/.config/gtk-3.0/settings.ini
-        regexp: '^gtk-key-theme-name ='
-        line: 'gtk-key-theme-name = Emacs'
+        regexp: '^gtk-key-theme-name='
+        line: 'gtk-key-theme-name=Emacs'
 
     - name: make CapsLock into Ctrl 1
       lineinfile:
@@ -91,3 +103,37 @@
         path: ~/.Xmodmap
         regexp: '^add Control = Control_L$'
         line: 'add Control = Control_L'
+
+    - file:
+        path: ~/.xprofile
+        state: touch
+        mode: u+rw,g+rw,o+rw
+        modification_time: preserve
+        access_time: preserve
+
+    - lineinfile:
+        path: ~/.xprofile
+        regexp: '^export GTK_IM_MODULE=fcitx$'
+        line: 'export GTK_IM_MODULE=fcitx'
+
+    - lineinfile:
+        path: ~/.xprofile
+        regexp: '^export QT_IM_MODULE=fcitx$'
+        line: 'export QT_IM_MODULE=fcitx'
+
+    - lineinfile:
+        path: ~/.xprofile
+        regexp: '^export XMODIFIERS=@im=fcitx$'
+        line: 'export XMODIFIERS=@im=fcitx'
+
+    - file:
+        path: ~/.config/locale.conf
+        state: touch
+        mode: u+rw,g+rw,o+rw
+        modification_time: preserve
+        access_time: preserve
+
+    - lineinfile:
+        path: ~/.config/locale.conf
+        regexp: '^LC_CTYPE='
+        line: 'LC_CTYPE=ja_JP.UTF-8'

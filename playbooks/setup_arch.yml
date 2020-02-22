@@ -1,0 +1,60 @@
+---
+-
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  become: yes
+  tasks:
+    - name: pacman -Sy
+      pacman:
+        update_cache: yes
+        upgrade: yes
+
+    - name: pacman -S gcc
+      pacman:
+        name: gcc
+        state: present
+
+    - name: pacman -S git
+      pacman:
+        name: git
+        state: present
+
+    - name: pacman -S docker
+      pacman:
+        name: docker
+        state: present
+
+    - name: pacman -S docker-compose
+      pacman:
+        name: docker-compose
+        state: present
+
+    - name: pacman -S vim
+      pacman:
+        name: vim
+        state: present
+
+    - name: pacman -S tmux
+      pacman:
+        name: tmux
+        state: present
+
+    - name: pacman -S curl
+      pacman:
+        name: curl
+        state: present
+
+  become: kentas
+  tasks:
+    - git_config:
+        name: user.name
+        scope: global
+        state: present
+        value: kenta-s
+
+    - git_config:
+        name: user.email
+        scope: global
+        state: present
+        value: knt01222@gmail.com

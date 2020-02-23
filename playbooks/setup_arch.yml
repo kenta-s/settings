@@ -15,6 +15,11 @@
         name: gcc
         state: present
 
+    - name: pacman -S openssh
+      pacman:
+        name: openssh
+        state: present
+
     - name: pacman -S git
       pacman:
         name: git
@@ -63,6 +68,26 @@
 
     - pacman:
         name: unzip
+        state: present
+
+    - pacman:
+        name: go
+        state: present
+
+    - pacman:
+        name: python-pexpect
+        state: present
+
+    - pacman:
+        name: noto-fonts
+        state: present
+
+    - pacman:
+        name: noto-fonts-cjk
+        state: present
+
+    - pacman:
+        name: noto-fonts-emoji
         state: present
 
     - pacman:
@@ -187,3 +212,26 @@
       command: curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
       args:
         creates: ~/.vim/autoload/plug.vim
+
+    - name: git clone yay
+      git:
+        repo: https://aur.archlinux.org/yay.git
+        dest: ~/.yay
+    
+    # TODO: I could not make this work. please run this mannualy
+    # - name: install yay
+    #   command: makepkg -si && touch ~/.yay/installed
+    #   args:
+    #     chdir: ~/.yay
+    #     creates: ~/.yay/installed
+
+    # this takes a few minutes
+    - name: install google-chrome
+      expect:
+        command: yay -S google-chrome
+        responses:
+         'Enter a number \(default=1\)': '1'
+         '\=\=\>': 'A'
+         '\=\=\>': 'N'
+      args:
+        creates: ~/.cache/yay/google-chrome

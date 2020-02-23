@@ -94,30 +94,46 @@
         value: knt01222@gmail.com
 
     - name: apply Emacs keybind 1
+      file:
+        path: ~/.config/gtk-3.0/settings.ini
+        state: touch
+        mode: u+rw,g+rw,o+rw
+        modification_time: preserve
+        access_time: preserve
+
+    - name: apply Emacs keybind 2
       lineinfile:
         path: ~/.config/gtk-3.0/settings.ini
         regexp: '^\[Settings\]$'
         line: '[Settings]'
 
-    - name: apply Emacs keybind 2
+    - name: apply Emacs keybind 3
       lineinfile:
         path: ~/.config/gtk-3.0/settings.ini
         regexp: '^gtk-key-theme-name='
         line: 'gtk-key-theme-name=Emacs'
 
     - name: make CapsLock into Ctrl 1
+      file:
+        path: ~/.Xmodmap
+        state: touch
+        mode: u+rw,g+rw,o+rw
+        modification_time: preserve
+        access_time: preserve
+
+    - name: make CapsLock into Ctrl 2
       lineinfile:
         path: ~/.Xmodmap
         regexp: '^remove Lock = Caps_Lock$'
         line: 'remove Lock = Caps_Lock'
 
-    - name: make CapsLock into Ctrl 2
+    - name: make CapsLock into Ctrl 3
       lineinfile:
         path: ~/.Xmodmap
         regexp: '^keysym Caps_Lock = Control_L$'
         line: 'keysym Caps_Lock = Control_L'
 
-    - name: make CapsLock into Ctrl 3
+    - name: make CapsLock into Ctrl 4
       lineinfile:
         path: ~/.Xmodmap
         regexp: '^add Control = Control_L$'

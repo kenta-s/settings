@@ -58,6 +58,14 @@
         state: present
 
     - pacman:
+        name: zip
+        state: present
+
+    - pacman:
+        name: unzip
+        state: present
+
+    - pacman:
         name: ripgrep
         state: present
 

@@ -94,9 +94,25 @@
         name: ripgrep
         state: present
 
+    - name: pacman -S wpa_supplicant
+      pacman:
+        name: wpa_supplicant
+        state: present
+
+    - name: pacman -S iw
+      pacman:
+        name: iw
+        state: present
+
     - name: Make sure bluetooth is running
       systemd:
         name: bluetooth
+        state: started
+        enabled: yes
+
+    - name: Make sure NetworkManager is running
+      systemd:
+        name: NetworkManager
         state: started
         enabled: yes
 

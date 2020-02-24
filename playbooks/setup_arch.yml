@@ -125,6 +125,11 @@
         state: started
         enabled: yes
 
+    - name: Make sure docker is running
+      systemd:
+        name: docker
+        state: started
+        enabled: yes
 -
   hosts: localhost
   connection: local

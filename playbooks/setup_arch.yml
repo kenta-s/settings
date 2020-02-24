@@ -75,6 +75,10 @@
         state: present
 
     - pacman:
+        name: ruby
+        state: present
+
+    - pacman:
         name: python-pexpect
         state: present
 
@@ -102,6 +106,11 @@
     - name: pacman -S iw
       pacman:
         name: iw
+        state: present
+
+    - name: pacman -S ntfs-3g
+      pacman:
+        name: ntfs-3g
         state: present
 
     - name: Make sure bluetooth is running

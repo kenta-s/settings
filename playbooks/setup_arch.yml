@@ -113,6 +113,11 @@
         name: ntfs-3g
         state: present
 
+    - name: pacman -S usbutils
+      pacman:
+        name: usbutils
+        state: present
+
     - name: Make sure bluetooth is running
       systemd:
         name: bluetooth
@@ -179,20 +184,32 @@
     - name: make CapsLock into Ctrl 2
       lineinfile:
         path: ~/.Xmodmap
-        regexp: '^remove Lock = Caps_Lock$'
-        line: 'remove Lock = Caps_Lock'
+        regexp: '^clear lock$'
+        line: 'clear lock'
 
     - name: make CapsLock into Ctrl 3
       lineinfile:
         path: ~/.Xmodmap
-        regexp: '^keysym Caps_Lock = Control_L$'
-        line: 'keysym Caps_Lock = Control_L'
+        regexp: '^clear control$'
+        line: 'clear control'
 
     - name: make CapsLock into Ctrl 4
       lineinfile:
         path: ~/.Xmodmap
-        regexp: '^add Control = Control_L$'
-        line: 'add Control = Control_L'
+        regexp: '^keycode 66 ='
+        line: 'keycode 66 = Control_L'
+
+    - name: make CapsLock into Ctrl 5
+      lineinfile:
+        path: ~/.Xmodmap
+        regexp: '^add control = Control_L Control_R$'
+        line: 'add control = Control_L Control_R'
+
+    - name: enable pipe key on Japanese keyboard
+      lineinfile:
+        path: ~/.Xmodmap
+        regexp: '^keycode 132 ='
+        line: 'keycode 132 = backslash bar'
 
     - file:
         path: ~/.xprofile

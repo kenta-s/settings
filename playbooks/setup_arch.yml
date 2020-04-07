@@ -50,6 +50,11 @@
         name: curl
         state: present
 
+    - name: pacman -S net-tools
+      pacman:
+        name: net-tools
+        state: present
+
     - pacman:
         name: fcitx
         state: present

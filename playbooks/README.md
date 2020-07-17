@@ -20,5 +20,5 @@ inventory = hosts
 ```
 
 ```
-$ ansible-playbook setup_ubuntu.yml -i ~/ansible/hosts  --ask-become-pass
+$ ansible-playbook setup_ubuntu.yml -i localhost,  --ask-become-pass --connection=local
 ```

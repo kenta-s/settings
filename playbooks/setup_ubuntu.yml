@@ -21,6 +21,11 @@
         name: git
         state: present
 
+    - name: apt install build-essential
+      apt:
+        name: build-essential
+        state: present
+
     - name: apt install docker
       apt:
         name: docker

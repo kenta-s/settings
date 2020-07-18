@@ -51,6 +51,11 @@
         name: curl
         state: present
 
+    - name: apt install xsel
+      apt:
+        name: xsel
+        state: present
+
     - name: make CapsLock into Ctrl
       lineinfile:
         path: /etc/default/keyboard
@@ -65,7 +70,7 @@
     - name: git clone fzf
       become: no
       git:
-        repo: git@github.com:junegunn/fzf.git
+        repo: https://github.com/junegunn/fzf.git
         dest: ~/.fzf
 
     - name: install fzf
@@ -83,7 +88,7 @@
     - name: install rbenv
       become: no
       git:
-        repo: git@github.com:rbenv/rbenv.git
+        repo: https://github.com/rbenv/rbenv.git
         dest: ~/.rbenv
 
     - name: add rbenv path
@@ -107,6 +112,6 @@
     - name: git clone ruby-build
       become: no
       git:
-        repo: git@github.com:rbenv/ruby-build.git
+        repo: https://github.com/rbenv/ruby-build.git
         dest: ~/.rbenv/plugins/ruby-build
 

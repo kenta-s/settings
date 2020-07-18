@@ -56,4 +56,21 @@
       systemd:
         name: console-setup
         state: restarted
-...
+
+    - name: git clone fzf
+      become: no
+      git:
+        repo: git@github.com:junegunn/fzf.git
+        dest: ~/.fzf
+
+    - name: install fzf
+      become: no
+      shell: ~/.fzf/install && touch ~/.fzf/installed
+      args:
+        creates: ~/.fzf/installed
+
+    - name: install vim-plug
+      become: no
+      command: curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+      args:
+        creates: ~/.vim/autoload/plug.vim

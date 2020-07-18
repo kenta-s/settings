@@ -26,6 +26,21 @@
         name: build-essential
         state: present
 
+    - name: apt install libssl-dev
+      apt:
+        name: libssl-dev
+        state: present
+
+    - name: apt install libreadline-dev
+      apt:
+        name: libreadline-dev
+        state: present
+
+    - name: apt install zlib1g-dev
+      apt:
+        name: zlib1g-dev
+        state: present
+
     - name: apt install docker
       apt:
         name: docker

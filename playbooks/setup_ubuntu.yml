@@ -71,6 +71,16 @@
         name: xsel
         state: present
 
+    - name: apt install exfat-fuse
+      apt:
+        name: exfat-fuse
+        state: present
+
+    - name: apt install exfat-utils
+      apt:
+        name: exfat-utils
+        state: present
+
     - name: make CapsLock into Ctrl
       lineinfile:
         path: /etc/default/keyboard

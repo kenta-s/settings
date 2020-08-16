@@ -87,11 +87,6 @@
         regexp: '^XKBOPTIONS='
         line: 'XKBOPTIONS="ctrl:nocaps"'
 
-    - name: systemctl restart console-setup
-      systemd:
-        name: console-setup
-        state: restarted
-
     - name: git clone fzf
       become: no
       git:
@@ -140,3 +135,36 @@
         repo: https://github.com/rbenv/ruby-build.git
         dest: ~/.rbenv/plugins/ruby-build
 
+    - name: git clone ruby-build
+      become: no
+      git:
+        repo: https://github.com/nodenv/nodenv.git
+        dest:  ~/.nodenv
+
+    - name: add nodenv path
+      become: no
+      lineinfile:
+        path: ~/.bashrc
+        line: 'export PATH="$HOME/.nodenv/bin:$PATH"'
+
+    - name: add nodenv init
+      become: no
+      lineinfile:
+        path: ~/.bashrc
+        line: 'eval "$(nodenv init -)"'
+
+    - name: mkdir nodenv/plugins
+      become: no
+      file: path=~/.nodenv/plugins state=directory mode=0755
+
+    - name: git clone node-build
+      become: no
+      git:
+        repo: https://github.com/nodenv/node-build.git
+        dest:  ~/.nodenv/plugins/node-build
+
+    - name: git pull in nodenv dir
+      become: no
+      shell: git pull
+      args:
+        chdir: ~/.nodenv

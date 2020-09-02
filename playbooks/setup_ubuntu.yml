@@ -81,6 +81,11 @@
         name: exfat-utils
         state: present
 
+    - name: apt install libmysqlclient-dev
+      apt:
+        name: libmysqlclient-dev
+        state: present
+
     - name: make CapsLock into Ctrl
       lineinfile:
         path: /etc/default/keyboard

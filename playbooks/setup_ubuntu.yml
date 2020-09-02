@@ -81,6 +81,11 @@
         name: exfat-utils
         state: present
 
+    - name: apt install mysql-client-core-8.0
+      apt:
+        name: mysql-client-core-8.0
+        state: present
+
     - name: apt install libmysqlclient-dev
       apt:
         name: libmysqlclient-dev
